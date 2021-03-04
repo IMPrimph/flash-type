@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import './TryAgain.css'
 
-const TryAgain = ({words, characters, wpm}) => {
-    return ( 
+const TryAgain = ({ words, characters, wpm, startAgain }) => {
+    return (
         <div className="try-again-container">
             <h1>Test Results</h1>
             <div className="result-container">
@@ -12,21 +12,21 @@ const TryAgain = ({words, characters, wpm}) => {
                 <p>
                     <b>Words: </b> {words}
                 </p>
-                <p>                    
+                <p>
                     <b>Speed: </b> {wpm} wpm
                 </p>
             </div>
             {/* retry button */}
             <div>
                 <button
-                    // onClick={() => startAgain()}
+                    onClick={() => startAgain()}
                     className="end-buttons start-again-btn"
                 >
                     Retry
                 </button>
             </div>
         </div>
-     );
+    );
 }
- 
+
 export default TryAgain;

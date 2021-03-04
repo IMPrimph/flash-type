@@ -4,33 +4,41 @@ import TypingChallenge from '../TypingChallenge/TypingChallenge'
 import './TypingChallengeContainer.css'
 
 const TypingChallengeContainer = ({
-    selectedParagraph, 
-    words, 
-    characters, 
-    wpm, 
-    timeRemaining, 
-    timerStarted
+    selectedParagraph,
+    words,
+    characters,
+    wpm,
+    timeRemaining,
+    timerStarted,
+    testInfo,
+    onInputChange
 }) => {
-    return ( 
+    return (
         <div className="typing-challenge-container">
             {/* details section */}
             <div className="details-container">
                 {/* words typed */}
-                <ChallengeDetailsCard cardName="Words" cardValue={words}/>
+                <ChallengeDetailsCard cardName="Words" cardValue={words} />
 
                 {/* characters typed */}
-                <ChallengeDetailsCard cardName="Characters" cardValue={characters}/>
+                <ChallengeDetailsCard cardName="Characters" cardValue={characters} />
 
                 {/* speed */}
-                <ChallengeDetailsCard cardName="Speed" cardValue={wpm}/>
+                <ChallengeDetailsCard cardName="Speed" cardValue={wpm} />
             </div>
 
             {/* the real typing container */}
             <div className="typewriter-container">
-                <TypingChallenge timerStarted={timerStarted} timeRemaining={timeRemaining} selectedParagraph={selectedParagraph}/>
+                <TypingChallenge
+                    timerStarted={timerStarted}
+                    timeRemaining={timeRemaining}
+                    selectedParagraph={selectedParagraph}
+                    testInfo={testInfo}
+                    onInputChange={onInputChange}
+                />
             </div>
         </div>
-     );
+    );
 }
- 
+
 export default TypingChallengeContainer;

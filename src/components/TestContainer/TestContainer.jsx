@@ -4,35 +4,40 @@ import './TestContainer.css'
 import TypingChallengeContainer from '../TypingChallengeContainer/TypingChallengeContainer'
 
 const TestContainer = ({
-    selectedParagraph, 
-    words, 
-    characters, 
-    wpm, 
-    timeRemaining, 
-    timerStarted
+    selectedParagraph,
+    words,
+    characters,
+    wpm,
+    timeRemaining,
+    timerStarted,
+    testInfo,
+    onInputChange,
+    startAgain
 }) => {
-    return ( 
+    return (
         <div className="test-container">
             {
                 timeRemaining > 0 ? (
                     <div data-aos="fade-up" className="typing-challenge-container">
-                        <TypingChallengeContainer 
-                            words={words} 
-                            characters={characters} 
+                        <TypingChallengeContainer
+                            words={words}
+                            characters={characters}
                             wpm={wpm}
                             timeRemaining={timeRemaining}
                             timerStarted={timerStarted}
                             selectedParagraph={selectedParagraph}
+                            testInfo={testInfo}
+                            onInputChange={onInputChange}
                         />
                     </div>
                 ) : (
-                    <div className="try-again-cont">
-                        <TryAgain words={words} characters={characters} wpm={wpm}/>
-                    </div> 
-                )
+                        <div className="try-again-cont">
+                            <TryAgain words={words} characters={characters} wpm={wpm} startAgain={startAgain} />
+                        </div>
+                    )
             }
         </div>
-     );
+    );
 }
- 
+
 export default TestContainer;
